@@ -1,1 +1,14 @@
-<p>item</p>
+<a href="#" class="list-group-item list-group-item-action ">
+    <div class="d-flex w-100 justify-content-between align-items-center">
+        <div>
+            <h4 class="list-group-item-header">{{recipeItem.title}}</h4>
+            <p class="list-group-item-text">{{recipeItem.description}}</p>
+        </div>
+        <span>
+            <img [src]="recipeItem.imageUrl" 
+            alt="{{recipeItem.title}}" 
+            class="img-fluid" 
+            style="max-height: 20vh;">
+        </span>
+    </div>
+</a>

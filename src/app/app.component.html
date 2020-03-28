@@ -1,18 +1,13 @@
-  <app-header></app-header>
+  <app-header (selectRouting)="getRouting($event)"></app-header>
   <div class="container app__container pt-2">
     <div class="row">
       <div class="col-12">
         <h1 class="success d-flex justify-content-center">App container</h1>
         <div class="row">
-           <div class="col-md-12">
-              <h2>Recipe Books</h2>
-              <app-recipe-book></app-recipe-book>
+           <div   class="col-md-12">
+              <app-recipe-book *ngIf="route === 'recipes'" ></app-recipe-book>
+              <app-shopping-list *ngIf="route === 'shopping'"></app-shopping-list>
             </div>
-          <div class="col-md-7"> 
-            <h2> Shopping List</h2>
-            <app-shopping-list></app-shopping-list>
-          </div>
-           
         </div>
       </div>
     </div>

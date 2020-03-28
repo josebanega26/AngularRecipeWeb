@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'recipeWeb';
+  route: string = '';
+  getRouting(event){
+    this.route = event;
+    console.log('CHANGE ROUTING', event)
+  }
+
 }

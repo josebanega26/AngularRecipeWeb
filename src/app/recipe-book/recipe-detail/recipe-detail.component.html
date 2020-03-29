@@ -1,6 +1,6 @@
-<h4>Recipe Name</h4>
+<h4>{{recipe.title}}</h4>
 <div class="row">
-  <img src="" alt="" class="img-fluid">
+  <img [src]='recipe.imageUrl' alt="" class="img-fluid" style="max-height: 50vh;">
 </div>
 <div class="dropdown show">
   <button
@@ -27,7 +27,7 @@
 </div>
 <div class="row">
   <div class="col-12">
-    Descripcion
+    {{recipe.description}}
   </div>
   <div class="col-12">
     Ingredients

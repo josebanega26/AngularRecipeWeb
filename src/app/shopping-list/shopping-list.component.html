@@ -4,11 +4,12 @@
     <h4>Ingredients</h4>
     <div class="col-12">
         <ul class="list-group">
-            <li 
-            class="list-group-item-action list-group-item"
-            *ngFor="let ingredient of ingredients" >
-                <p>{{ingredient.name}} ({{ingredient.amount}}) </p>
-            </li>
+            <app-ingredient
+            *ngFor="let ingredient of ingredients" 
+            [ingredient]='ingredient'
+            >
+            </app-ingredient
+            >
         </ul>
     </div>
 </div>

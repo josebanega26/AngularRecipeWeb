@@ -29,12 +29,19 @@
 </div>
 <div class="row">
   <div class="col-12">
+    <h4>Description</h4>
     {{recipe.description}}
   </div>
-  <div class="col-12">
-    Ingredient
-    <ul>
-      <li *ngFor="let ingredient of recipe.ingredients">{{ingredient.name}}</li>
-    </ul>
+  <div class="col-6">
+    <h6>Ingredients</h6>
+        <ul class="list-group">
+            <app-ingredient
+            *ngFor="let ingredient of recipe.ingredients" 
+            [ingredient]='ingredient'
+            >
+            </app-ingredient
+            >
+        </ul>
   </div>
+  
 </div>

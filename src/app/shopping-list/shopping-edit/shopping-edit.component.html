@@ -5,12 +5,32 @@
             <div class="col-12 form-group">
                 <div class="row">
                     <div class="col-sm-7">
-                        <label for="name"> Name</label>
-                        <input type="text" id='name' class="form-control">
+                        <label > Name</label>
+                        <input 
+                        type="text" 
+                        id='name' 
+                        name='ingredient_name'
+                        class="form-control"
+                        [(ngModel)]="ingredient.name"
+                        >
                     </div>
                     <div class="col-sm-5">
                         <label for="amount"> Amount</label>
-                        <input type="number" id='amount' class="form-control">
+                        <input
+                        name='ingredient_amount'
+                        [(ngModel)]="ingredient.amount"
+                        type="number" id='amount' class="form-control">
+                    </div>
+                </div>
+                <div class="row pt-2">
+                    <div class="col-3">
+                        <button
+                        (click)='addIngredient()' 
+                        type="submit" 
+                        class="btn btn-success">
+                            Add
+                        </button
+                        >
                     </div>
                 </div>
             </div>

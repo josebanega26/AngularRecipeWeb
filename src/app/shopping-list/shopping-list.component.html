@@ -2,11 +2,10 @@
 <app-shopping-edit></app-shopping-edit>
 <div class="row pt-2">
     <h4>Ingredients</h4>
-    <div class="col-10">
-        <app-ingredient></app-ingredient>
+    <div class="col-12">
         <ul class="list-group">
             <li 
-            class="list-group-item"
+            class="list-group-item-action list-group-item"
             *ngFor="let ingredient of ingredients" >
                 <p> name: {{ingredient.name}} | amount {{ingredient.amount}}</p>
             </li>

@@ -1,11 +1,10 @@
-  <app-header (selectRouting)="getRouting($event)"></app-header>
+  <app-header ></app-header>
   <div class="container app__container pt-2">
     <div class="row">
       <div class="col-12">
         <div class="row">
            <div   class="col-md-12">
-              <app-recipe-book *ngIf="route === 'recipes'" ></app-recipe-book>
-              <app-shopping-list *ngIf="route === 'shopping'"></app-shopping-list>
+              <router-outlet></router-outlet>
             </div>
         </div>
       </div>

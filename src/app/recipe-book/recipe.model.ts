@@ -4,15 +4,18 @@ export class Recipe {
     public description: string;
     public imageUrl: string;
     public ingredients : Ingredient[];
+    public id:number
     constructor(
         title: string,
         description: string,
         imageUrl: string,
-        ingredients : Ingredient[]) {
+        ingredients : Ingredient[],
+        id:number) {
         this.title = title;
         this.description = description;
         this.imageUrl = imageUrl;
         this.ingredients = ingredients;
+        this.id=id
     }
 
 }

@@ -6,12 +6,7 @@
             >
     </div>
     <div class="col-md-7">
-        <app-recipe-detail
-        *ngIf="recipeSelected ;else noRecipe"
-        [recipeSelected]="recipeSelected"
-        ></app-recipe-detail>
-        <ng-template #noRecipe >
-            <h4>No Recipe selected</h4>
-        </ng-template>
+        <router-outlet></router-outlet>
+        <!-- [recipeSelected]="recipeSelected" -->
     </div>
 </div>

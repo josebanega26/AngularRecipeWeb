@@ -13,7 +13,8 @@ export class RecipeService {
         new Ingredient("Papas", 5),
         new Ingredient("Aji", 2),
         new Ingredient("Lemon", 2)
-      ]
+      ],
+      0
     ),
     new Recipe(
       "cheesecake ",
@@ -23,9 +24,13 @@ export class RecipeService {
         new Ingredient("cheese", 2),
         new Ingredient("chocolate", 5),
         new Ingredient("Harina", 2)
-      ]
+      ],
+      1
     )
   ];
   
+  getRecipeById(id:number){
+    return this.recipes[id]
+  }
   
 }

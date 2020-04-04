@@ -5,7 +5,8 @@
         </button>
     </div>
         <div class="col-12  pt-2" *ngFor="let item of recipes">
-            <app-recipe-item 
+            <app-recipe-item
+            style="cursor: pointer;"
             [recipe]='item'
             ></app-recipe-item>
         </div>

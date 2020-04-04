@@ -5,7 +5,7 @@ import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { RecipeBookComponent } from "./recipe-book/recipe-book.component";
 import { NoRecipeComponent } from "./recipe-book/no-recipe/no-recipe.component";
 import { RecipeDetailComponent } from "./recipe-book/recipe-detail/recipe-detail.component";
-
+import {RecipeEditComponent} from './recipe-book/recipe-edit/recipe-edit.component'
 const routes: Routes = [
   { path: "", component: HomePageComponent },
   {
@@ -13,7 +13,9 @@ const routes: Routes = [
     component: RecipeBookComponent,
     children: [
       { path: "", component: NoRecipeComponent },
-      { path: ":id", component: RecipeDetailComponent }
+      { path: "new", component: RecipeEditComponent},
+      { path: ":id", component: RecipeDetailComponent },
+      { path: ":id/edit", component: RecipeDetailComponent },
     ]
   },
   { path: "shopping", component: ShoppingListComponent }

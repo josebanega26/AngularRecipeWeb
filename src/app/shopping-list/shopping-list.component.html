@@ -5,8 +5,9 @@
     <div class="col-12">
         <ul class="list-group">
             <app-ingredient
-            *ngFor="let ingredient of ingredients" 
+            *ngFor="let ingredient of ingredients; let id = index" 
             [ingredient]='ingredient'
+            (click)="onEditItem(id)"
             >
             </app-ingredient
             >

@@ -9,11 +9,14 @@ import {Ingredient} from '../shared/ingredient.model'
 export class ShoppingListComponent implements OnInit {
   constructor(private shoppingService: ShoppingService) { }
   ingredients: Ingredient[];
-  
   ngOnInit(): void {
   this.ingredients= this.shoppingService.getIngredients()
   this.shoppingService.ingredientsChanged
     .subscribe((ingredients:Ingredient[])=>(this.ingredients=ingredients))
   }
-
+  
+  onEditItem(id:number){
+    this.shoppingService.startEditing.next(id)
+    console.log('id in shopping',id)
+  }
 }

@@ -27,7 +27,8 @@
                         ngModel
                         required
                         [pattern]="'^[1-9][0-9]*$'"
-                        type="number" id='amount' class="form-control">
+                        type="number" id='amount' 
+                        class="form-control">
                     </div>
                 </div>
                 <div class="row pt-2">
@@ -36,13 +37,21 @@
                         type="submit"
                         [disabled]='!form.valid' 
                         class="btn btn-success">
-                            Add
+                            {{ !editing ? "Add" : "Save"}}
+                        </button
+                        >
+                        <button
+                        (click)="deleteData()"
+                        type="button"
+                        class=" ml-2 pl-2 btn btn-danger">
+                            Delete
                         </button
                         >
                         <button
                         type="button"
-                        class=" ml-2 pl-2 btn btn-danger">
-                            Delete
+                        (click)='clearData()'
+                        class=" ml-2 pl-2 btn btn-primary">
+                            Clear
                         </button
                         >
                     </div>

@@ -3,7 +3,9 @@
     <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
       <div class="row mb-2">
         <div class="col-6">
-          <button type="submit" class="btn btn-primary btn-block">
+          <button 
+          [disabled]="!recipeForm.valid"
+          type="submit" class="btn btn-success btn-block">
             {{ editMode ? "Update" : "Save" }}
           </button>
         </div>
@@ -44,16 +46,29 @@
       </div>
       <label for="">Ingredients</label>
       <div class="row" formArrayName="ingredients">
-        <div class="col-12" >
-          <div class="row mt-2" 
-          *ngFor="let ingredientCtrl of controls; let i = index"
-          [formGroupName]="i"
+        <div class="col-12">
+          <div
+            class="row mt-2"
+            *ngFor="let ingredientCtrl of controls; let i = index"
+            [formGroupName]="i"
           >
-            <div class="col-8" >
-              <input formControlName="name"  type="text" class="form-control" name="item" id="" />
+            <div class="col-8">
+              <input
+                formControlName="name"
+                type="text"
+                class="form-control"
+                name="item"
+                id=""
+              />
             </div>
             <div class="col-2">
-              <input formControlName="amount" type="text" class="form-control" name="amount" id="" />
+              <input
+                formControlName="amount"
+                type="text"
+                class="form-control"
+                name="amount"
+                id=""
+              />
             </div>
             <div class="col-2">
               <button
@@ -66,6 +81,15 @@
                 X
               </button>
             </div>
+          </div>
+          <div class="row">
+            <div class="col-6 mt-2"><button
+              (click)="addIngredient()"
+              type="button"
+              class="btn btn-info btn-block">
+              Add Ingredient
+            </button
+            ></div>
           </div>
         </div>
       </div>

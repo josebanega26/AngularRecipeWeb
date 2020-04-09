@@ -17,7 +17,9 @@
       (click)="addToShopping()" style="cursor: pointer;"> 🛒 To shopping </a>
     </li>
     <li>
-      <a class="dropdown-item" href="#"> 📝 Edit Recipe</a>
+      <a class="dropdown-item" 
+      [routerLink]="['edit']"
+      > 📝 Edit Recipe</a>
     </li>
     <li>
       <a class="dropdown-item" href="#"> ❌ Delete Recipe</a>

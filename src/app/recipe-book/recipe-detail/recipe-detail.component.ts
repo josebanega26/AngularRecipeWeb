@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Recipe } from "../recipe.model";
 import { ShoppingService } from "../../services/shopping.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute , Router} from "@angular/router";
 import { RecipeService } from "../../services/recipe.service";
 @Component({
   selector: "app-recipe-detail",
@@ -12,6 +12,7 @@ export class RecipeDetailComponent implements OnInit {
   recipe: Recipe;
   constructor(
     private shoppingService: ShoppingService,
+    private goRoute: Router,
     private router: ActivatedRoute,
     private recipeService: RecipeService
   ) {}
@@ -25,5 +26,9 @@ export class RecipeDetailComponent implements OnInit {
   }
   addToShopping() {
     this.shoppingService.addIngredients(this.recipe.ingredients);
+  }
+  deleteRecipe(){
+    this.recipeService.DeleteRecipe(this.id)
+    this.goRoute.navigate(['../'],{relativeTo:this.router})
   }
 }

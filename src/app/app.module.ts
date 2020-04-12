@@ -18,6 +18,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { NoRecipeComponent } from './recipe-book/no-recipe/no-recipe.component';
 import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component'
 import {  HttpClientModule } from '@angular/common/http';
+import { AuthPageComponent } from './auth-page/auth-page.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {  HttpClientModule } from '@angular/common/http';
     RecipeItemComponent,
     HomePageComponent,
     NoRecipeComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    AuthPageComponent
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,7 @@ import { NoRecipeComponent } from './recipe-book/no-recipe/no-recipe.component';
 import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component'
 import {  HttpClientModule } from '@angular/common/http';
 import { AuthPageComponent } from './auth-page/auth-page.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { AuthPageComponent } from './auth-page/auth-page.component';
     HomePageComponent,
     NoRecipeComponent,
     RecipeEditComponent,
-    AuthPageComponent
+    AuthPageComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

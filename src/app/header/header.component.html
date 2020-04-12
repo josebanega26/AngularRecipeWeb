@@ -20,5 +20,18 @@
         >Shopping List</a>
       </li>
     </ul>
+    <ul class="navbar-nav mr-5">
+      <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" type="button" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Manejar Recetas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         <a class="dropdown-item" (click)="storageRecipes()" type="button">Save Recipes</a>
+        <a class="dropdown-item" (click)="onFetchRecipes()"type="button">Load Recipes</a>
+
+        </div>
+      </li>
+    </ul>
+    
   </div>
 </nav>

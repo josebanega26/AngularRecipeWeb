@@ -17,6 +17,8 @@ import {ShoppingService} from './services/shopping.service';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NoRecipeComponent } from './recipe-book/no-recipe/no-recipe.component';
 import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component'
+import {  HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.compo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ShoppingService,
               RecipeService]

@@ -39,6 +39,12 @@ export class AuthService {
       );
   }
 
+  logout(){
+    localStorage.setItem('userData','')
+    this.userSubject.next(null)
+    this.router.navigate(["/"])
+  }
+
   handlerAuth(
     email: string,
     localId: string,
@@ -48,9 +54,17 @@ export class AuthService {
     const expirationDate = new Date(new Date().getTime() + +expiresIn * 1000);
     const user = new User(email, localId, token, expirationDate);
     this.userSubject.next(user);
+    localStorage.setItem('userData', JSON.stringify(user))
     this.router.navigate(['./recipe'])
   }
 
+  autoLogin(){
+    const userData = localStorage.getItem('userData')
+    if(userData){
+      this.userSubject.next(JSON.parse(userData))
+      this.router.navigate(['./recipe'])
+    }
+  }
   signIn(email: string, password: string) {
     return this.httpClient
       .post(SIGN_IN, {

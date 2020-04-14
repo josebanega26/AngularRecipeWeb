@@ -12,7 +12,7 @@ import {  Router } from '@angular/router';
 export class AuthPageComponent implements OnInit {
   @ViewChild("AuthForm") AuthForm: NgForm;
   authObservable = new Observable();
-  isLoginMode: boolean;
+  isLoginMode: boolean = true;
   isLoading: boolean = false;
   errorMessage = null;
   constructor(private authService: AuthService,

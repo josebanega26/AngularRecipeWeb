@@ -40,7 +40,7 @@ export class AuthService {
   }
 
   logout(){
-    localStorage.setItem('userData','')
+    localStorage.removeItem('userData')
     this.userSubject.next(null)
     this.router.navigate(["/"])
   }

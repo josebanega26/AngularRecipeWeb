@@ -7,10 +7,14 @@ import { NoRecipeComponent } from "./recipe-book/no-recipe/no-recipe.component";
 import { RecipeDetailComponent } from "./recipe-book/recipe-detail/recipe-detail.component";
 import { RecipeEditComponent } from "./recipe-book/recipe-edit/recipe-edit.component";
 import { ResolverDataService } from "./services/resolver-data.service";
+import {AuthPageComponent} from '../app/auth-page/auth-page.component'
+import {AuthGuard} from '../app/services/auth.guard'
 const routes: Routes = [
-  { path: "", component: HomePageComponent },
+  {path: "", component: AuthPageComponent},
+  { path: "home", component: HomePageComponent },
   {
     path: "recipe",
+    canActivate: [AuthGuard],
     component: RecipeBookComponent,
     children: [
       { path: "", component: NoRecipeComponent,
@@ -28,7 +32,8 @@ const routes: Routes = [
       },
     ],
   },
-  { path: "shopping", component: ShoppingListComponent },
+  { path: "shopping", component: ShoppingListComponent,
+  canActivate: [AuthGuard], },
 ];
 
 @NgModule({

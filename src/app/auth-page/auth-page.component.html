@@ -3,23 +3,23 @@ style="min-height: 60vh; align-items: center;"
 *ngIf="!isLoading">
 
   <div class="col-sm-6 offset-sm-3">
-    <div 
-    *ngIf="errorMessage"
-    class="alert alert-danger" role="alert">
-      <strong>{{errorMessage}}</strong>
-    </div>
+    <app-alert-modal 
+    [error]="errorMessage"
+    (close)="closeModal()"
+    *ngIf="errorMessage" ></app-alert-modal>
     <form (ngSubmit)="onSubmit(AuthForm)" #AuthForm="ngForm">
       <div class="form-group">
         <label for="">E-mail</label>
-        <input type="email" required name="email" ngModel class="form-control" placeholder="a@gmail.com"
+        <input 
+        type="email" 
+        required name="email" 
+        ngModel class="form-control" placeholder="test@gmail.com"
           aria-describedby="helpId" />
-        <small id="helpId" class="text-muted">Help text</small>
       </div>
       <div class="form-group">
         <label for="">Password</label>
         <input name="password" ngModel class="form-control" type="password" required placeholder="*******"
           aria-describedby="helpId" minlength="6" />
-        <small id="helpId" class="text-muted">Help text</small>
       </div>
       <div class="row">
         <div class="col-lg-6 mt-1">

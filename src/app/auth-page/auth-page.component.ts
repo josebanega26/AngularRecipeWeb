@@ -51,4 +51,8 @@ export class AuthPageComponent implements OnInit {
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
   }
+  closeModal(){
+    console.log('close mofal')
+    this.errorMessage = null
+  }
 }

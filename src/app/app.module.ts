@@ -20,6 +20,7 @@ import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.compo
 import {  HttpClientModule } from '@angular/common/http';
 import { AuthPageComponent } from './auth-page/auth-page.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { AlertModalComponent } from './alert-modal/alert-modal.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
     NoRecipeComponent,
     RecipeEditComponent,
     AuthPageComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    AlertModalComponent
   ],
   imports: [
     BrowserModule,

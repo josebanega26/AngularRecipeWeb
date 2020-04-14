@@ -4,9 +4,11 @@ import { catchError, tap } from "rxjs/operators";
 import { throwError,  BehaviorSubject} from "rxjs";
 import { User } from "../shared/user.model";
 import { Router } from '@angular/router';
-const APIKEY = "AIzaSyDKU7VQH5EQ7uYrAefplNjXphP5SKMLy6U";
-const SIGN_UP = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${APIKEY}`;
-const SIGN_IN = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${APIKEY}`;
+import { environment } from '../../environments/environment'
+
+
+const SIGN_UP = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebaseApiKey}`;
+const SIGN_IN = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseApiKey}`;
 interface AuthInterface {
   email: string;
   localId: string;

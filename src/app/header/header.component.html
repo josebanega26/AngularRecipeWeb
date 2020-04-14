@@ -10,7 +10,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ">
-        <a class="nav-link" [routerLink]="['/recipe']" 
+        <a class="nav-link" 
+        *ngIf="user"
+        [routerLink]="['/recipe']" 
         routerLinkActive="active">Recipes </a>
       </li>
       <li class="nav-item">
@@ -21,11 +23,18 @@
       </li>
     </ul>
     <ul class="navbar-nav mr-5">
-      <li class="nav-item dropdown ">
+      <li *ngIf="user">
+         <a class="nav-link" 
+        >Log out</a>
+      </li>
+      <li class="nav-item dropdown "
+      *ngIf="user">
         <a class="nav-link dropdown-toggle" type="button" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Manejar Recetas
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div 
+        
+        class="dropdown-menu" aria-labelledby="navbarDropdown">
          <a class="dropdown-item" (click)="storageRecipes()" type="button">Save Recipes</a>
         <a class="dropdown-item" (click)="onFetchRecipes()"type="button">Load Recipes</a>
 

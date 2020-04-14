@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { catchError, tap } from "rxjs/operators";
-import { throwError, Subject } from "rxjs";
+import { throwError,  BehaviorSubject} from "rxjs";
 import { User } from "../shared/user.model";
+import { Router } from '@angular/router';
 const APIKEY = "AIzaSyDKU7VQH5EQ7uYrAefplNjXphP5SKMLy6U";
 const SIGN_UP = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${APIKEY}`;
 const SIGN_IN = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${APIKEY}`;
@@ -14,9 +15,10 @@ interface AuthInterface {
 }
 @Injectable({ providedIn: "root" })
 export class AuthService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient,
+    private router: Router) {}
 
-  userSubject = new Subject<User>();
+  userSubject = new BehaviorSubject<User>(null);
   signUp(email: string, password: string) {
     return this.httpClient
       .post(SIGN_UP, {
@@ -46,6 +48,7 @@ export class AuthService {
     const expirationDate = new Date(new Date().getTime() + +expiresIn * 1000);
     const user = new User(email, localId, token, expirationDate);
     this.userSubject.next(user);
+    this.router.navigate(['./recipe'])
   }
 
   signIn(email: string, password: string) {

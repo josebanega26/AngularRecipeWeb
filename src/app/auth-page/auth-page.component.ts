@@ -36,7 +36,7 @@ export class AuthPageComponent implements OnInit {
       (params: any) => {
         this.isLoading = false;
         console.log("params", params);
-        this.route.navigate(['./recipes'])
+        // this.route.navigate(['./recipe'])
 
       },
       (error) => {

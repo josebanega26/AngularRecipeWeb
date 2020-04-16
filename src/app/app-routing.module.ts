@@ -11,7 +11,7 @@ import { AuthPageComponent } from "../app/auth-page/auth-page.component";
 import { AuthGuard } from "../app/services/auth.guard";
 const routes: Routes = [
   { path: "", component: AuthPageComponent },
-  { path: "home", component: HomePageComponent, canActivate: [AuthGuard] },
+  { path: "home", component: HomePageComponent },
   {
     path: "recipe",
     canActivate: [AuthGuard],

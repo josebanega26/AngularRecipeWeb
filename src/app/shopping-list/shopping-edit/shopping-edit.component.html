@@ -1,62 +1,50 @@
-<div class="row">
-       <h4>Shopping Edit</h4>
-    <div class="col-md-12">
-        <form 
-        (ngSubmit)="addIngredient(form)"
-        #form="ngForm"
-        >
-            <div 
-            ngModelGroup="newIngredient"
-            class="col-12 form-group">
-                <div class="row">
-                    <div class="col-sm-7">
-                        <label > Name</label>
-                        <input 
-                        type="text" 
-                        id='name' 
-                        name='name'
-                        class="form-control"
-                        ngModel
-                        required
-                        >
-                    </div>
-                    <div class="col-sm-5">
-                        <label for="amount"> Amount</label>
-                        <input
-                        name='amount'
-                        ngModel
-                        required
-                        [pattern]="'^[1-9][0-9]*$'"
-                        type="number" id='amount' 
-                        class="form-control">
-                    </div>
-                </div>
-                <div class="row pt-2">
-                    <div class="col-3">
-                        <button
-                        type="submit"
-                        [disabled]='!form.valid' 
-                        class="btn btn-success">
-                            {{ !editing ? "Add" : "Save"}}
-                        </button
-                        >
-                        <button
-                        (click)="deleteData()"
-                        type="button"
-                        class=" ml-2 pl-2 btn btn-danger">
-                            Delete
-                        </button
-                        >
-                        <button
-                        type="button"
-                        (click)='clearData()'
-                        class=" ml-2 pl-2 btn btn-primary">
-                            Clear
-                        </button
-                        >
-                    </div>
-                </div>
-            </div>
-        </form>
+<form (ngSubmit)="addIngredient(form)" #form="ngForm">
+  <div ngModelGroup="newIngredient" class=" form-group">
+    <div class="row">
+      <div class="col-sm-7">
+        <label> Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="form-control"
+          ngModel
+          required
+        />
+      </div>
+      <div class="col-sm-5">
+        <label for="amount"> Amount</label>
+        <input
+          name="amount"
+          ngModel
+          required
+          [pattern]="'^[1-9][0-9]*$'"
+          type="number"
+          id="amount"
+          class="form-control"
+        />
+      </div>
     </div>
-</div>
+    <div class="row pt-2">
+      <div class="col-3">
+        <button type="submit" [disabled]="!form.valid" class="btn btn-success">
+          {{ !editing ? "Add" : "Save" }}
+        </button>
+        <button
+          (click)="deleteData()"
+          type="button"
+          class="ml-2 pl-2 btn btn-danger"
+        >
+          Delete
+        </button>
+        <button
+          type="button"
+          (click)="clearData()"
+          class="ml-2 pl-2 btn btn-primary"
+        >
+          Clear
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

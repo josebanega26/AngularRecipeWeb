@@ -7,6 +7,9 @@ style="min-height: 60vh; align-items: center;"
     [error]="errorMessage"
     (close)="closeModal()"
     *ngIf="errorMessage" ></app-alert-modal>
+    <figure>
+      <img src="../../assets/images/logo.png" alt="Logo Recipe Web">
+    </figure>
     <form (ngSubmit)="onSubmit(AuthForm)" #AuthForm="ngForm">
       <div class="form-group">
         <label for="">E-mail</label>

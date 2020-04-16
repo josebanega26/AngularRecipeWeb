@@ -1,52 +1,51 @@
 <div class="d-flex justify-content-between py-2">
-  <h4>{{recipe.title}}</h4>
+  <h4>{{ recipe.title }}</h4>
   <div class="dropdown show">
-  <button
-    type="button"
-    class="btn btn-primary dropdown-toggle"
-    id="dropdownMenuLink"
-    data-toggle="dropdown"
-    aria-haspopup="true"
-    aria-expanded="false"
-  >
-    Manage Recipe
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <li>
-      <a class="dropdown-item" 
-      (click)="addToShopping()" style="cursor: pointer;"> 🛒 To shopping </a>
-    </li>
-    <li>
-      <a class="dropdown-item" 
-      [routerLink]="['edit']"
-      > 📝 Edit Recipe</a>
-    </li>
-    <li>
-      <a class="dropdown-item"
-      (click)="deleteRecipe()"
-      > ❌ Delete Recipe</a>
-    </li>
-  </ul>
-</div>
-</div>
-<div class="row d-flex justify-content-center">
-  <img [src]='recipe.imageUrl' alt="" class="img-fluid" style="max-height: 50vh;">
+    <button
+      type="button"
+      class="btn btn-outline-danger dropdown-toggle"
+      id="dropdownMenuLink"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      Manage Recipe
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li>
+        <a
+          class="dropdown-item"
+          (click)="addToShopping()"
+          style="cursor: pointer;"
+        >
+          🛒 To shopping
+        </a>
+      </li>
+      <li>
+        <a class="dropdown-item" [routerLink]="['edit']"> 📝 Edit Recipe</a>
+      </li>
+      <li>
+        <a class="dropdown-item" (click)="deleteRecipe()"> ❌ Delete Recipe</a>
+      </li>
+    </ul>
+  </div>
 </div>
 <div class="row">
-  <div class="col-12">
-    <h4>Description</h4>
-    {{recipe.description}}
+  <div class="col-md-10 offset-md-1">
+    <div class="card" >
+      <img [src]="recipe.imageUrl" class="card-img-top" [alt]="recipe.title" />
+      <div class="card-body">
+        <h5 class="card-title">Description</h5>
+        <p class="card-text">{{ recipe.description }}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <strong>Ingredients</strong>
+        </li>
+        <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+          {{ ingredient.name }} ({{ ingredient.amount }})
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="col-6">
-    <h6>Ingredients</h6>
-        <ul class="list-group">
-            <app-ingredient
-            *ngFor="let ingredient of recipe.ingredients" 
-            [ingredient]='ingredient'
-            >
-            </app-ingredient
-            >
-        </ul>
-  </div>
-  
 </div>

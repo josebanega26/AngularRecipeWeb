@@ -21,7 +21,6 @@ export class AuthPageComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    console.log("this.AuthForm", this.AuthForm);
     const email = this.AuthForm.value.email;
     const password = this.AuthForm.value.password;
     // Sign Up
@@ -35,7 +34,6 @@ export class AuthPageComponent implements OnInit {
     this.authObservable.subscribe(
       (params: any) => {
         this.isLoading = false;
-        console.log("params", params);
         // this.route.navigate(['./recipe'])
 
       },
@@ -52,7 +50,6 @@ export class AuthPageComponent implements OnInit {
     this.isLoginMode = !this.isLoginMode;
   }
   closeModal(){
-    console.log('close mofal')
     this.errorMessage = null
   }
 }

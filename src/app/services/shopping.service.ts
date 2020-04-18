@@ -32,9 +32,7 @@ export class ShoppingService {
     this.ingredients.splice(id,1)
   }
   addIngredients(ingredients: Ingredient[]) {
-    console.log("ingredients", ingredients);
     this.ingredients.push(...ingredients);
-    console.log("shooping list", this.ingredients);
     this.ingredientsChanged.emit(this.ingredients.slice());
   }
 }

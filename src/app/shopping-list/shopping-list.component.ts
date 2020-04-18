@@ -17,6 +17,5 @@ export class ShoppingListComponent implements OnInit {
   
   onEditItem(id:number){
     this.shoppingService.startEditing.next(id)
-    console.log('id in shopping',id)
   }
 }

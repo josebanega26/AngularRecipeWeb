@@ -18,14 +18,12 @@ export class DataStorageService {
   storageRecipes() {
     const recipes = this.recipeService.getRecipes();
     this.httpClient.put(API, recipes).subscribe((params: any) => {
-      console.log("params", params);
     });
   }
   fetchRecipes() {
     let dataUser
     this.userSubject = this.authService.userSubject.subscribe(user => {
       dataUser = user})
-    console.log('params', dataUser._token)
     return this.httpClient.get<Recipe[]>(API,{
       params: new HttpParams().set('auth',dataUser._token)
     }).pipe(
@@ -35,7 +33,6 @@ export class DataStorageService {
         )
       ),
       tap((recipes: any[]) => {
-        console.log("recipes", recipes);
         this.recipeService.setRecipes(recipes);
       })
     );

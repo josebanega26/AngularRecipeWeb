@@ -23,7 +23,6 @@ export class RecipeEditComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.id = params["id"];
       this.editMode = params["id"] != null;
-      console.log("this.editMode", this.editMode);
       this.initForm();
     });
   }
@@ -48,7 +47,6 @@ export class RecipeEditComponent implements OnInit {
     );
   }
   onSubmit() {
-    console.log("this.recipeForm", this.recipeForm);
     const { title, imageUrl, description, ingredients } = this.recipeForm.value;
 
     if (this.editMode) {
@@ -59,7 +57,6 @@ export class RecipeEditComponent implements OnInit {
         ingredients,
         this.id
       );
-      console.log("recipeUpdated", recipeUpdated);
       this.recipeService.UpdateRecipe(recipeUpdated);
     } else {
       const newId = this.recipeService.recipeLength + 1;
@@ -70,7 +67,6 @@ export class RecipeEditComponent implements OnInit {
         ingredients,
         newId
       );
-      console.log("newRecipe", newRecipe);
       this.recipeService.AddRecipe(newRecipe);
     }
     this.onCancel()

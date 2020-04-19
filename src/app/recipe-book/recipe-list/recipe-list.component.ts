@@ -9,6 +9,7 @@ import {RecipeService} from '../../services/recipe.service'
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
   recipe: Recipe;
+  filterValue: string = "";
 
   constructor(private recipeService: RecipeService) { }
 

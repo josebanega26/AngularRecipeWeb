@@ -1,14 +1,21 @@
 <div class="row">
-    <div class="col-md-12">
-        <button class="btn btn-success btn-block"
-        [routerLink]="['/recipe/new']"  >
-            New Recipe
-        </button>
+  <div class="col-md-12">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="filterValue"
+        aria-describedby="helpId"
+        placeholder="Search recipes"
+      />
     </div>
-        <div class="col-12  pt-2" *ngFor="let item of recipes">
-            <app-recipe-item
-            style="cursor: pointer;"
-            [recipe]='item'
-            ></app-recipe-item>
-        </div>
+  </div>
+  <div class="col-md-6">
+    <button class="btn btn-success btn-block" [routerLink]="['/recipe/new']">
+      New Recipe
+    </button>
+  </div>
+  <div class="col-12 pt-2" *ngFor="let item of recipes | filter:filterValue:'title' ">
+    <app-recipe-item style="cursor: pointer;" [recipe]="item"></app-recipe-item>
+  </div>
 </div>

@@ -21,6 +21,7 @@ import {  HttpClientModule } from '@angular/common/http';
 import { AuthPageComponent } from './auth-page/auth-page.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { AlertModalComponent } from './alert-modal/alert-modal.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { AlertModalComponent } from './alert-modal/alert-modal.component';
     RecipeEditComponent,
     AuthPageComponent,
     LoadingSpinnerComponent,
-    AlertModalComponent
+    AlertModalComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

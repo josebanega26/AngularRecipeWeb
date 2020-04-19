@@ -33,7 +33,7 @@ style="min-height: 60vh; align-items: center;"
         </div>
         <div class="col-lg-6 mt-1">
           <button type="button" (click)="onSwitchMode()" class="btn btn-danger btn-block ">
-            Switch To Login Mode
+            Switch To {{ isLoginMode ? "Sign up" : "Sign in" }}
           </button>
         </div>
       </div>

@@ -2,6 +2,9 @@ import { BrowserModule , } from '@angular/platform-browser';
 import { NgModule  } from '@angular/core';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';  
 import { AppRoutingModule } from './app-routing.module';
+import {StoreModule} from '@ngrx/store'
+
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
@@ -13,7 +16,6 @@ import { RecipeListComponent } from './recipe-book/recipe-list/recipe-list.compo
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { RecipeItemComponent } from './recipe-book/recipe-list/recipe-item/recipe-item.component'
 import {RecipeService} from './services/recipe.service'
-import {ShoppingService} from './services/shopping.service';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NoRecipeComponent } from './recipe-book/no-recipe/no-recipe.component';
 import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component'
@@ -23,7 +25,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { AlertModalComponent } from './alert-modal/alert-modal.component';
 import { FilterPipe } from './pipes/filter.pipe';
 
-
+import {ShoppingListReducer} from './shopping-list/store/shopping-list.reducer'
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,9 +51,12 @@ import { FilterPipe } from './pipes/filter.pipe';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({
+      shoppingList: ShoppingListReducer
+    })
   ],
-  providers: [ShoppingService,
+  providers: [
               RecipeService]
               ,
   bootstrap: [AppComponent]

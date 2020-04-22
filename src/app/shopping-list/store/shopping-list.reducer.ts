@@ -13,9 +13,6 @@ export interface State  {
     editItemIndex: number,
 }
 
-export interface AppState{
-    shoppingList: State
-}
 const initialSate = {
 ingredients:  [
     new Ingredient("Zanahoria", 10),
@@ -31,14 +28,12 @@ export function ShoppingListReducer(state = initialSate, action: ShoppingListAct
         case START_EDIT:
             const ingredients = [...state.ingredients]
             const editItem = ingredients[action.payload]
-            console.log('editItem', editItem)
             return {
                 ...state,
                 editItem: editItem,
                 editItemIndex: action.payload
             }
         case STOP_EDIT:
-            console.log('stop edit')
           return {
                     ...state,
                     editItemIndex: -1,

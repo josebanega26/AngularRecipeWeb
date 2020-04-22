@@ -4,7 +4,7 @@ import { Subscription } from "rxjs";
 import { NgForm } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import * as shoppingListActions from "../store/shopping-list.action";
-import { AppState } from "../store/shopping-list.reducer";
+import {AppState} from '../../store/app.store'
 @Component({
   selector: "app-shopping-edit",
   templateUrl: "./shopping-edit.component.html",
@@ -37,7 +37,7 @@ export class ShoppingEditComponent implements OnInit {
   clearData() {
     this.store.dispatch(new shoppingListActions.stopEdit());
     this.editing = false;
-    this.slForm.reset();
+    this.slForm.reset();  
   }
 
   deleteData() {

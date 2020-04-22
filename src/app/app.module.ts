@@ -24,7 +24,7 @@ import { AuthPageComponent } from './auth-page/auth-page.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { AlertModalComponent } from './alert-modal/alert-modal.component';
 import { FilterPipe } from './pipes/filter.pipe';
-
+import * as fromApp from './store/app.store'
 import {ShoppingListReducer} from './shopping-list/store/shopping-list.reducer'
 @NgModule({
   declarations: [
@@ -52,9 +52,7 @@ import {ShoppingListReducer} from './shopping-list/store/shopping-list.reducer'
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({
-      shoppingList: ShoppingListReducer
-    })
+    StoreModule.forRoot(fromApp.appReducer)
   ],
   providers: [
               RecipeService]

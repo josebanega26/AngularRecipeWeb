@@ -49,7 +49,8 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem("userData");
-    this.userSubject.next(null);
+    this.store.dispatch(new authActions.logout());
+    // this.userSubject.next(null);
     this.router.navigate(["/"]);
     if (this.logoutTimer) {
       clearTimeout(this.logoutTimer);
@@ -70,7 +71,15 @@ export class AuthService {
   ) {
     const expirationDate = new Date(new Date().getTime() + +expiresIn * 1000);
     const user = new User(email, localId, token, expirationDate);
-    this.userSubject.next(user);
+    // this.userSubject.next(user);
+    this.store.dispatch(
+      new authActions.login({
+        email: email,
+        localId: localId,
+        idToken: token,
+        expiresIn: expiresIn,
+      })
+    );
     this.autoLogout(expiresIn * 1000);
     localStorage.setItem("userData", JSON.stringify(user));
     this.router.navigate(["./recipe"]);
@@ -78,15 +87,24 @@ export class AuthService {
 
   autoLogin() {
     const userData = localStorage.getItem("userData");
-    const user:  {
+    const user: {
       name: string;
       password: string;
       _token: string;
       _tokenExpirationData: Date;
     } = JSON.parse(userData);
-    const _tokenExpirationData = new Date(user._tokenExpirationData).getTime() - new Date().getTime()
+    const _tokenExpirationData =
+      new Date(user._tokenExpirationData).getTime() - new Date().getTime();
     if (userData) {
       this.userSubject.next(new User(user.name,user.password,user._token, user._tokenExpirationData));
+      this.store.dispatch(
+        new authActions.login({
+          email: user.name,
+          localId: user.password,
+          idToken: user._token,
+          expiresIn: new Date(user._tokenExpirationData).getTime(),
+        })
+      );
       this.autoLogout(_tokenExpirationData);
       this.router.navigate(["./recipe"]);
     }

@@ -3,8 +3,6 @@ import { Recipe } from "../recipe-book/recipe.model";
 import { RecipeService } from "../services/recipe.service";
 import { DataStorageService } from "./data-storage.service";
 import {
-  Router,
-  ActivatedRoute,
   Resolve,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,

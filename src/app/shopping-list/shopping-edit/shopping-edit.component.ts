@@ -25,7 +25,6 @@ export class ShoppingEditComponent implements OnInit {
         if (editItemIndex > -1) {
           this.editing = true;
           this.id = editItemIndex;
-          console.log("editItem", editItem);
           this.ingredient = editItem;
           this.slForm.setValue({ newIngredient: this.ingredient });
         } else {
